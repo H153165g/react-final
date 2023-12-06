@@ -1,0 +1,405 @@
+ [
+		{
+			"amiiboSeries": "Legend Of Zelda",
+			"character": "Zelda",
+			"gameSeries": "The Legend of Zelda",
+			"head": "01010300",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01010300-04140902.png",
+			"name": "Zelda & Loftwing",
+			"release": {
+				"au": "2021-07-16",
+				"eu": "2021-07-16",
+				"jp": "2021-07-16",
+				"na": "2021-07-16"
+			},
+			"tail": "04140902",
+			"type": "Figure"
+		},
+        {
+			"amiiboSeries": "Legend Of Zelda",
+			"character": "Ganon",
+			"gameSeries": "The Legend of Zelda",
+			"head": "01020100",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01020100-041a0902.png",
+			"name": "Ganondorf - Tears of the Kingdom",
+			"release": {
+				"au": "2023-11-03",
+				"eu": "2023-11-03",
+				"jp": "2023-11-03",
+				"na": "2023-11-03"
+			},
+			"tail": "041a0902",
+			"type": "Figure"
+		},
+ 
+		{
+			"amiiboSeries": "Legend Of Zelda",
+			"character": "Link",
+			"gameSeries": "The Legend of Zelda",
+			"head": "01000000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01000000-03530902.png",
+			"name": "Link - Archer",
+			"release": {
+				"au": "2017-03-03",
+				"eu": "2017-03-03",
+				"jp": "2017-03-03",
+				"na": "2017-03-03"
+			},
+			"tail": "03530902",
+			"type": "Figure"
+		},
+        {
+			"amiiboSeries": "Splatoon",
+			"character": "Inkling",
+			"gameSeries": "Splatoon",
+			"head": "08000100",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_08000100-04150402.png",
+			"name": "Inkling - Yellow",
+			"release": {
+				"au": "2022-11-11",
+				"eu": "2022-11-11",
+				"jp": "2022-11-11",
+				"na": "2022-11-11"
+			},
+			"tail": "04150402",
+			"type": "Figure"
+		},
+        {
+			"amiiboSeries": "Splatoon",
+			"character": "Octoling",
+			"gameSeries": "Splatoon",
+			"head": "08050300",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_08050300-03900402.png",
+			"name": "Octoling Octopus",
+			"release": {
+				"au": "2018-11-11",
+				"eu": "2018-11-09",
+				"jp": "2018-11-09",
+				"na": "2018-11-09"
+			},
+			"tail": "03900402",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Splatoon",
+			"character": "Shiver",
+			"gameSeries": "Splatoon",
+			"head": "08070000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_08070000-04330402.png",
+			"name": "Shiver",
+			"release": {
+				"au": "2023-11-17",
+				"eu": "2023-11-17",
+				"jp": "2023-11-17",
+				"na": "2023-11-17"
+			},
+			"tail": "04330402",
+			"type": "Figure"
+		},
+        {
+			"amiiboSeries": "Mario Sports Superstars",
+			"character": "Wario",
+			"gameSeries": "Mario Sports Superstars",
+			"head": "09c50201",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_09c50201-02830e02.png",
+			"name": "Wario - Baseball",
+			"release": {
+				"au": "2017-03-11",
+				"eu": "2017-03-10",
+				"jp": "2017-03-30",
+				"na": "2017-03-24"
+			},
+			"tail": "02830e02",
+			"type": "Card"
+		},
+		{
+			"amiiboSeries": "Mario Sports Superstars",
+			"character": "Waluigi",
+			"gameSeries": "Mario Sports Superstars",
+			"head": "09c60101",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_09c60101-02870e02.png",
+			"name": "Waluigi - Soccer",
+			"release": {
+				"au": "2017-03-11",
+				"eu": "2017-03-10",
+				"jp": "2017-03-30",
+				"na": "2017-03-24"
+			},
+			"tail": "02870e02",
+			"type": "Card"
+		},
+		{
+			"amiiboSeries": "Mario Sports Superstars",
+			"character": "Metal Mario",
+			"gameSeries": "Mario Sports Superstars",
+			"head": "09d00301",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_09d00301-02bb0e02.png",
+			"name": "Metal Mario - Tennis",
+			"release": {
+				"au": "2017-03-11",
+				"eu": "2017-03-10",
+				"jp": "2017-03-30",
+				"na": "2017-03-24"
+			},
+			"tail": "02bb0e02",
+			"type": "Card"
+		},
+
+	
+        {
+			"amiiboSeries": "Monster Hunter",
+			"character": "Razewing Ratha",
+			"gameSeries": "Monster Hunter",
+			"head": "35050000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_35050000-040c0f02.png",
+			"name": "Razewing Ratha",
+			"release": {
+				"au": "2021-07-09",
+				"eu": "2021-07-09",
+				"jp": "2021-07-09",
+				"na": "2021-07-09"
+			},
+			"tail": "040c0f02",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Monster Hunter",
+			"character": "Rathian",
+			"gameSeries": "Monster Hunter",
+			"head": "35020100",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_35020100-02e40f02.png",
+			"name": "Rathian and Cheval",
+			"release": {
+				"au": null,
+				"eu": null,
+				"jp": "2016-12-08",
+				"na": null
+			},
+			"tail": "02e40f02",
+			"type": "Figure"
+		},
+        {
+			"amiiboSeries": "Monster Hunter Rise",
+			"character": "Palico",
+			"gameSeries": "Monster Hunter",
+			"head": "35090000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_35090000-04101802.png",
+			"name": "Palico",
+			"release": {
+				"au": "2021-03-26",
+				"eu": "2021-03-26",
+				"jp": "2021-03-26",
+				"na": "2021-03-26"
+			},
+            "tail": "04101802",
+			"type": "Figure"
+		},
+        {
+			"amiiboSeries": "Kirby",
+			"character": "Kirby",
+			"gameSeries": "Kirby",
+			"head": "1f000000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_1f000000-02540c02.png",
+			"name": "Kirby",
+			"release": {
+				"au": "2016-06-11",
+				"eu": "2016-06-10",
+				"jp": "2016-04-28",
+				"na": "2016-06-10"
+			},
+			"tail": "02540c02",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Kirby",
+			"character": "Meta Knight",
+			"gameSeries": "Kirby",
+			"head": "1f010000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_1f010000-02550c02.png",
+			"name": "Meta Knight",
+			"release": {
+				"au": "2016-06-11",
+				"eu": "2016-06-10",
+				"jp": "2016-04-28",
+				"na": "2016-06-10"
+			},
+			"tail": "02550c02",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Kirby",
+			"character": "Waddle Dee",
+			"gameSeries": "Kirby",
+			"head": "1f030000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_1f030000-02570c02.png",
+			"name": "Waddle Dee",
+			"release": {
+				"au": "2016-06-11",
+				"eu": "2016-06-10",
+				"jp": "2016-04-28",
+				"na": "2016-06-10"
+			},
+			"tail": "02570c02",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Kirby",
+			"character": "King Dedede",
+			"gameSeries": "Kirby",
+			"head": "1f020000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_1f020000-02560c02.png",
+			"name": "King Dedede",
+			"release": {
+				"au": "2016-06-11",
+				"eu": "2016-06-10",
+				"jp": "2016-04-28",
+				"na": "2016-06-10"
+			},
+			"tail": "02560c02",
+			"type": "Figure"
+		},
+        {
+			"amiiboSeries": "Animal Crossing",
+			"character": "Isabelle",
+			"gameSeries": "Animal Crossing",
+			"head": "01810101",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01810101-00b40502.png",
+			"name": "Isabelle - Winter",
+			"release": {
+				"au": "2015-11-21",
+				"eu": "2015-11-20",
+				"jp": "2015-10-29",
+				"na": "2016-01-22"
+			},
+			"tail": "00b40502",
+			"type": "Card"
+		},
+		{
+			"amiiboSeries": "Animal Crossing",
+			"character": "Ava",
+			"gameSeries": "Animal Crossing",
+			"head": "029e0001",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_029e0001-013d0502.png",
+			"name": "Ava",
+			"release": {
+				"au": "2016-03-19",
+				"eu": "2016-03-18",
+				"jp": "2016-01-14",
+				"na": "2016-03-18"
+			},
+			"tail": "013d0502",
+			"type": "Card"
+		},
+		{
+			"amiiboSeries": "Animal Crossing",
+			"character": "Blanca",
+			"gameSeries": "Animal Crossing",
+			"head": "01b30001",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_01b30001-00b50502.png",
+			"name": "Blanca",
+			"release": {
+				"au": "2015-11-21",
+				"eu": "2015-11-20",
+				"jp": "2015-10-29",
+				"na": "2016-01-22"
+			},
+			"tail": "00b50502",
+			"type": "Card"
+		},
+        {
+			"amiiboSeries": "Super Smash Bros.",
+			"character": "Ivysaur",
+			"gameSeries": "Pokemon",
+			"head": "19020000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_19020000-03830002.png",
+			"name": "Ivysaur",
+			"release": {
+				"au": "2019-09-20",
+				"eu": "2019-09-20",
+				"jp": "2019-09-20",
+				"na": "2019-09-20"
+			},
+			"tail": "03830002",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Pokemon",
+			"character": "Detective Pikachu",
+			"gameSeries": "Pokemon",
+			"head": "1d010000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_1d010000-03750d02.png",
+			"name": "Detective Pikachu",
+			"release": {
+				"au": "2018-03-24",
+				"eu": "2018-03-23",
+				"jp": "2018-03-23",
+				"na": "2018-03-23"
+			},
+			"tail": "03750d02",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Super Smash Bros.",
+			"character": "Pikachu",
+			"gameSeries": "Pokemon",
+			"head": "19190000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_19190000-00090002.png",
+			"name": "Pikachu",
+			"release": {
+				"au": "2014-11-29",
+				"eu": "2014-11-28",
+				"jp": "2014-12-06",
+				"na": "2014-11-21"
+			},
+			"tail": "00090002",
+			"type": "Figure"
+		},
+        {
+			"amiiboSeries": "Super Smash Bros.",
+			"character": "Sephiroth",
+			"gameSeries": "Final Fantasy",
+			"head": "36010000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_36010000-04210002.png",
+			"name": "Sephiroth",
+			"release": {
+				"au": "2023-01-13",
+				"eu": "2023-01-13",
+				"jp": "2023-01-13",
+				"na": "2023-01-13"
+			},
+			"tail": "04210002",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Super Smash Bros.",
+			"character": "Cloud Strife",
+			"gameSeries": "Final Fantasy",
+			"head": "36000000",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_36000000-02590002.png",
+			"name": "Cloud",
+			"release": {
+				"au": "2017-07-22",
+				"eu": "2017-07-21",
+				"jp": "2017-07-21",
+				"na": "2017-07-21"
+			},
+			"tail": "02590002",
+			"type": "Figure"
+		},
+		{
+			"amiiboSeries": "Super Smash Bros.",
+			"character": "Cloud Strife",
+			"gameSeries": "Final Fantasy",
+			"head": "36000100",
+			"image": "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_36000100-03620002.png",
+			"name": "Cloud - Player 2",
+			"release": {
+				"au": "2017-07-22",
+				"eu": "2017-07-21",
+				"jp": "2017-07-21",
+				"na": "2017-07-21"
+			},
+			"tail": "03620002",
+			"type": "Figure"
+		}
+    ]
