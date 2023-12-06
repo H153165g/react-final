@@ -32,7 +32,7 @@ export default function App(){
         (async () => {
             const newProduct = await fetchCategory("All","");
             setProduct(newProduct);
-            console.log(product)
+    
           })();
       }, []);
 
