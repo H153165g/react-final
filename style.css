@@ -7,8 +7,9 @@ html {
 }
 
 body {
-  width: 800px;
+  min-width: 100vh;
   margin: 0 auto;
+  background-position: center;
 }
 
 /* Typography */
@@ -37,6 +38,27 @@ h2 {
   padding-top: 0.3rem;
 }
 
+.relative{
+  position: relative;
+  display:table-cell;
+  
+  text-align:center;
+  min-height: 100vh;
+  min-width: 80vh;
+
+}
+
+
+img.Qz {
+  
+    position: absolute;
+    width: 500px;
+    height: auto;
+    border: 0px solid gray;
+    margin:auto;
+    top:150px;
+    
+}
 
 
 p, label, input, select, button, li {
@@ -72,124 +94,48 @@ footer {
   border-top: 0;
 }
 
-aside {
-  flex: 3;
-}
 
-main {
-  flex: 7;
-}
-
-/* Form styling */
-
-aside {
-  display: flex;
-  flex-flow: column;
-  align-items: stretch;
-}
-
-aside div {
-  margin-bottom: 20px;
-}
-
-label, select, input {
-  display: block;
-}
-
-label {
-  margin-bottom: 5px;
-}
-
-select, input, button {
-  width: 100%;
-}
-
-input {
+button.pass{
   background: black;
-  box-shadow: inset 1px 1px 1px white;
   color: yellow;
+  font-family: 'Raleway', sans-serif;
+  font-size: 50px;
+  padding: 5px 0;
   border: none;
-  padding: 5px;
-  width: 201.5px;
+  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
+  min-height: 100px;
+  min-width: 160px;
+  max-height: 100px;
+  max-width: 160px;
 }
 
-button {
+button.first {
+  z-index: 30;
   background: black;
   color: yellow;
+  font-family: 'Raleway', sans-serif;
+  font-size: 100px;
   padding: 5px 0;
   border: none;
   border-radius: 10px;
   box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
+  min-height: 100vh;
+  min-width: 160vh;
 }
-
-/* Styling the products */
-
-main {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-
-section {
-  width: 45%;
-  margin: 5px;
-  background-color: black;
-  position: relative;
-  height: 215px;
-}
-
-section img {
-  width: 100%;
-  display: block;
-  position: absolute;
-  bottom: 0px;
-}
-
-section p {
-  color: yellow;
+button{
+  z-index: 20;
   background: black;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 50%;
-  box-shadow: 2px 2px 1px yellow;
-  position: absolute;
-  right: 10px;
-  bottom: -6px;
-  z-index: 2000;
-}
-
-
-
-/* mobile responsive styles*/
-@media screen and (max-width: 800px){
-  body, body div {
-    display: grid;
-    max-width: 480px;
-  }
-  header {
-    grid-row: 1;
-    margin-top: 10px;
-  }  
-
-  aside {
-    grid-row: 1;
-    border-right: none;    
-    border-bottom: 5px solid black;    
-  }
-  input{
-    width: calc(100% - 5px);
-    padding: 5px 0 5px 5px;
-  }
-  main {
-    grid-row: 2;
-  }
-  footer {
-    grid-row: 3;
-    margin-bottom: 10px;
-  }
-  .vegetables, .meat, .soup {
-    background: black;
-  }
+  color: yellow;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px;
+  padding: 5px 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
+  
+  min-height: 100px;
+  min-width: 160px;
+  max-height: 100px;
+  max-width: 160px;
+  
 }
