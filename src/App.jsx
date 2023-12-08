@@ -1,4 +1,3 @@
-
 import { useState , useEffect } from "react";
 import React from "react";
 
@@ -22,6 +21,7 @@ export default function App(){
     const [start,setStart]=useState(true);
     const [Qz,setQz]=useState({});
     const [Sty,setSty]=useState(Array(8).fill([0, 0]))
+    const [count,setCount]=useState(0);
 
     const gameseries=[
         "The Legend of Zelda",
@@ -40,20 +40,20 @@ export default function App(){
             const newProduct = await fetchCategory("All","");
 
             setProduct(newProduct);
-            console.log("非同期な処理終了！");
     
           })();
       }, []);
     
     function getRandomPosition() {
-        const top = Math.floor(Math.random() * window.innerHeight);
-        const left = Math.floor(Math.random() * window.innerWidth);
+        const top = Math.floor(Math.random() * (window.innerHeight-100));
+        const left = Math.floor(Math.random() * (window.innerWidth-170));
 
         return [
              top,
              left 
         ];
     }
+
     function stylesetting(){
         const data=[getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition()];
         setSty(data);
@@ -61,21 +61,17 @@ export default function App(){
       
     async function randomValueFromArray() {
         
-        if (!product || product.length === 0) {
-          // productが空の場合、エラーを避けるために何らかの処理を行う（例: エラーメッセージの設定）
-          return { url: '', name: '' }; // 空のオブジェクトやデフォルトの値を返す
-        } else {
-            const result =  Math.floor(Math.random() * product.length);
-            setQz(
-                {
-                    url: product[result].image,
-                    name: product[result].character,
-                    game:product[result].gameSeries
-                }
+        const result =  Math.floor(Math.random() * product.length);
+        setQz(
+              {
+                 url: product[result].image,
+                 name: product[result].character,
+                 game:product[result].gameSeries
+              }
             )
             
-        }
     }
+    
       
     return(
         <>
@@ -83,14 +79,18 @@ export default function App(){
     {start &&
     <button onClick={
             async()=>{
-                await randomValueFromArray();
-                stylesetting();
-                console.log(Qz);
+                if(count===0){
+                      await randomValueFromArray();
+                      stylesetting();
+                      console.log(Qz);
+                }
+                setCount(count+1);
                 setStart(false);
         }} className="first">Start!!</button>
     }
     <button onClick={
         async()=>{
+            setStart(true);
             await randomValueFromArray();
             stylesetting();
             console.log(Sty);
@@ -110,6 +110,7 @@ export default function App(){
             onClick={
                 async()=>{
                     if(game===Qz.game){
+                        setStart(true);
                         await randomValueFromArray();
                         stylesetting();
                     }

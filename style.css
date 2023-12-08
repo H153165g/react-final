@@ -57,6 +57,7 @@ img.Qz {
     border: 0px solid gray;
     margin:auto;
     top:150px;
+    left: 500px;
     
 }
 
@@ -96,6 +97,7 @@ footer {
 
 
 button.pass{
+  position: absolute;
   background: black;
   color: yellow;
   font-family: 'Raleway', sans-serif;
@@ -110,6 +112,7 @@ button.pass{
 }
 
 button.first {
+  position: absolute;
   z-index: 30;
   background: black;
   color: yellow;
@@ -123,6 +126,7 @@ button.first {
   min-width: 160vh;
 }
 button{
+  position: absolute;
   z-index: 20;
   background: black;
   color: yellow;
