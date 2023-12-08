@@ -51,7 +51,7 @@ h2 {
 
 img.Qz {
   
-    position: absolute;
+    position: relative;
     width: 500px;
     height: auto;
     border: 0px solid gray;
@@ -98,7 +98,9 @@ footer {
 
 
 button.pass{
+  
   position: absolute;
+  z-index: 10;
   background: black;
   color: yellow;
   font-family: 'Raleway', sans-serif;
@@ -127,21 +129,21 @@ button.first {
   min-width: 160vh;
 }
 button.game{
+  
   position: absolute;
   z-index: 20;
   background: black;
   color: yellow;
-  font-family: 'Raleway', sans-serif;
-  font-size: 10px;
+  font-family: 'Cherry Swash', cursive;
+  font-size: 20px;
   padding: 5px 0;
   border: none;
   border-radius: 10px;
   box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
   
-  min-height: 100px;
-  min-width: 160px;
-  max-height: 100px;
-  max-width: 160px;
+  height: 100px;
+  width: 150px;
+  
   
 }
 main {

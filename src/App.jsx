@@ -2,78 +2,105 @@ import { useState , useEffect } from "react";
 import React from "react";
 
 async function fetchCategory(category,searchTerm){
-    const request = await fetch("products.json");
+    if(category===""){
+        
+        const request2 = await fetch("https://www.amiiboapi.com/api/gameseries/");
+        let data2=await request2.json();
+        
+        console.log(data2.amiibo)
+        return data2.amiibo||[];
+    }
+
+    const request = await fetch("https://www.amiiboapi.com/api/amiibo/");
     let data = await request.json();//dataの値が変化するため、const -> let
-    console.log(category);
+    
+
 
     if(searchTerm !== ""){
-        data = data.filter(products => products.character.includes(searchTerm));
+        data.amiibo = data.amiibo.filter(products => products.character.includes(searchTerm));
     }
     if(category === "All"){
-        return data;
+        return data.amiibo;
     } else {
-        return data.filter(products => products.gameSeries === category); 
+        return data.amiibo.filter(products => products.gameSeries === category); 
     }
-
 }
 
 export default function App(){
     const [product,setProduct] = useState([]);
     const [start,setStart]=useState(true);
     const [Qz,setQz]=useState({});
-    const [Sty,setSty]=useState(Array(8).fill([0, 0]))
     const [count,setCount]=useState(0);
     const [select,setSelect]=useState(0);
     const [category,setCategory]=useState("");
     const [searchTerm,setSearchTerm]=useState("");
-
-    const gameseries=[
-        "The Legend of Zelda",
-        "Splatoon",
-        "Mario Sports Superstars",
-        "Monster Hunter",
-        "Kirby",
-        "Animal Crossing",
-        "Pokemon",
-        "Final Fantasy"
-    ];
-
-    
+    const [gameseries,setgameserise]=useState([]);
+    const [Styx,setStyx]=useState([]);
+    const [Styy,setStyy]=useState([]);
+    const [load,setLoad]=useState(true);
+    const [selgame,setselgame]=useState([]);
+            
     useEffect(() => {
-        (async () => {
-            const newProduct = await fetchCategory("All","");
+        const fetchData = async () => {
+            const productData = await fetchCategory("All", "");
+            const gameseriesData = await fetchCategory("", "");
+            console.log(productData)
+            console.log(gameseriesData)
+            const newGame = await gameseriesData.filter((item, index, self) =>index === self.findIndex((t) => t.name === item.name));  
+            console.log(newGame) 
+            setProduct(productData);
+            setgameserise(newGame);
+            setStyx(Array(gameseries.length));
+            setStyy(Array(gameseries.length));
+            setLoad(false);
+        }
+        fetchData();
+    }, []);
 
-            setProduct(newProduct);
-    
-          })();
-      }, []);
+
     
     function getRandomPosition() {
-        const top = Math.floor(Math.random() * (window.innerHeight-100));
-        const left = Math.floor(Math.random() * (window.innerWidth-170));
+        const top = Math.floor(Math.random() * (window.innerHeight)/100);
+        
 
-        return [
-             top,
-             left 
-        ];
+        return top;
     }
-
+    function getRandomPosition2(){
+        const left = Math.floor(Math.random() * (window.innerWidth)/170);
+        return left;
+    }
     function stylesetting(){
-        const data=[getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition(),getRandomPosition()];
-        setSty(data);
+        console.log("Move")
+        const newdata1=gameseries.map(()=>getRandomPosition());
+        const newdata2=gameseries.map(()=>getRandomPosition2());
+        for(let i=0;i<gameseries.length;i++){
+            for(let j=i+1;j<gameseries.length;j++){
+                if(newdata1[i]===newdata1[j] && newdata2[i]===newdata2[j]){
+                    newdata1[j]=getRandomPosition();
+                    newdata2[j]=getRandomPosition2();
+                    i=0;
+                    j=gameseries.length;
+                }
+            }
+        }
+        console.log(newdata1)
+        setStyx(newdata1);
+        setStyy(newdata2);
     }
+
+    
       
     async function randomValueFromArray() {
-        
-        const result =  Math.floor(Math.random() * product.length);
+        const name=Math.floor(Math.random()*gameseries.length);
+        const a=product.filter(products => products.gameSeries === gameseries[name].name);
+        const b=Math.floor(Math.random()*a.length);
         setQz(
               {
-                 url: product[result].image,
-                 name: product[result].character,
-                 game:product[result].gameSeries
+                 url: a[b].image,
+                 name: a[b].character,
+                 game:a[b].gameSeries
               }
-            )
-            
+            )            
     }
 
 
@@ -84,22 +111,17 @@ export default function App(){
             <button onClick={
                     async()=>{
                         if(count===0){
+
                               await randomValueFromArray();
                               stylesetting();
+                              setCount(count+1);
 
                         }
-                        setCount(count+1);
+                       
                         setStart(false);
                 }} className="first">Start!!</button>
             }
-            <button onClick={
-                async()=>{
-                    setStart(true);
-                    await randomValueFromArray();
-                    stylesetting();
-                    console.log(Sty);
-                }
-            } className="pass">Pass</button>
+            
         
                <div className="relative">
                   <img src={Qz.url} alt={Qz.name} className="Qz"/>
@@ -108,18 +130,18 @@ export default function App(){
                 {gameseries.map((game,index)=>{
                     return(
                     <button 
-                    key={index} 
+                    key={game.key} 
                     className="game"
                     onClick={
                         async(e)=>{
-                            if(game===Qz.game){
+                            if(game.name===Qz.game){
                                 setStart(true);
                                 await randomValueFromArray();
                                 stylesetting();
                             } else {
                                 
                                 e.preventDefault();
-                                setCategory(Qz.game);
+                                
                                 setSearchTerm(Qz.name);
                                 const newProduct = await fetchCategory(Qz.game,Qz.name);     
                                 setProduct(newProduct);
@@ -127,7 +149,7 @@ export default function App(){
                             }
         
                         }
-                    }  style={{position:'absolute',top:Sty[index][0],left:Sty[index][1]} }>{game}</button>
+                    }  style={{position:'absolute',top:Styx[index]*100,left:Styy[index]*160} }>{game.name}</button>
                     )
                 })}
                 </>
@@ -156,7 +178,7 @@ export default function App(){
                     return(
                         
                         <option key={index} value={game}>
-                            {game}
+                            {game.name}
                         </option>
                         
                     );
@@ -177,6 +199,7 @@ export default function App(){
             </div>
             <div>
               <button onClick={async(e)=>{
+                console.log(category)
                 e.preventDefault();
                 const newProduct = await fetchCategory(category,searchTerm);     
                 setProduct(newProduct);
@@ -204,13 +227,21 @@ export default function App(){
       className="pass">Game</button>
     </>
             
-        )
+        );
     }
     
+    function startLoad(){
+        if(select===0){
+            return (page1());
+        } else {
+            return (page2());
+        }
+    }
+ 
       
     return(
         <>
-        {select===0 ? page1():page2()}
+        {load===false&& startLoad()}
         
         </>
     );
