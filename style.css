@@ -2,8 +2,8 @@
 
 html {
   font-family: 'Raleway', sans-serif;
-  background-color: yellow;
   font-size: 10px;
+  background-color: yellow;
 }
 
 body {
@@ -12,13 +12,13 @@ body {
   background-position: center;
 }
 
-/* Typography */
-
 h1, h2 {
   font-family: 'Cherry Swash', cursive;
   margin: 0;
   text-align: center;
 }
+
+/* Typography */
 
 h1 {
   font-size: 5rem;
@@ -38,116 +38,32 @@ h2 {
   padding-top: 0.3rem;
 }
 
-.relative{
+
+.relative {
   position: relative;
-  display:table-cell;
-  
-  text-align:center;
+  display: table-cell;
+  text-align: center;
   min-height: 100vh;
   min-width: 80vh;
-
 }
-
 
 img.Qz {
-  
-    position: relative;
-    width: 500px;
-    height: auto;
-    border: 0px solid gray;
-    margin:auto;
-    top:150px;
-    left: 500px;
-    
+  position: relative;
+  width: 500px;
+  height: auto;
+  border: 0px solid gray;
+  margin: auto;
+  top: 150px;
+  left: 500px;
 }
 
-
-p, label, input, select, button, li {
-  font-family: 'Cherry Swash', cursive;
-  font-size: 1.5rem;
-}
-
-li {
-  line-height: 1.5;
-}
-
-/* block styling */
-
-header, aside, main, footer {
-  padding: 20px;
-}
-
-header {
-  border: 5px solid black;
-  border-bottom: 0;
-}
-
-aside {
-  border-right: 5px solid black;
-}
-
-body > div {
-  border: 5px solid black;
-  display: flex;
-}
-
-footer {
-  border: 5px solid black;
-  border-top: 0;
-}
-
-
-button.pass{
-  
-  position: absolute;
-  z-index: 10;
-  background: black;
-  color: yellow;
-  font-family: 'Raleway', sans-serif;
-  font-size: 50px;
-  padding: 5px 0;
-  border: none;
+div.inputter {
+  position: fixed;
+  background-color: yellow;
+  z-index: 40;
+  width: 300px;
+  height: 600vh;
   box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
-  min-height: 100px;
-  min-width: 160px;
-  max-height: 100px;
-  max-width: 160px;
-}
-
-button.first {
-  position: absolute;
-  z-index: 30;
-  background: black;
-  color: yellow;
-  font-family: 'Raleway', sans-serif;
-  font-size: 100px;
-  padding: 5px 0;
-  border: none;
-  border-radius: 10px;
-  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
-  min-height: 100vh;
-  min-width: 160vh;
-}
-button.game{
-  
-  position: absolute;
-  z-index: 20;
-  background: black;
-  color: yellow;
-  font-family: 'Cherry Swash', cursive;
-  font-size: 20px;
-  padding: 5px 0;
-  border: none;
-  border-radius: 10px;
-  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
-  
-  height: 100px;
-  width: 150px;
-  
-  
-}
-main {
-  flex: 7;
 }
 
 /* Form styling */
@@ -174,14 +90,7 @@ select, input, button {
   width: 100%;
 }
 
-input {
-  background: black;
-  box-shadow: inset 1px 1px 1px white;
-  color: yellow;
-  border: none;
-  padding: 5px;
-  width: 201.5px;
-}
+/* Button styling */
 
 button {
   background: black;
@@ -190,34 +99,85 @@ button {
   border: none;
   border-radius: 10px;
   box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
+  cursor: pointer;
+}
+
+button.pass {
+  position: fixed;
+  z-index: 50;
+  min-height: 100px;
+  min-width: 160px;
+  max-height: 100px;
+  max-width: 160px;
+  left: 50px;
+  bottom: 50px;
+}
+button.pass2 {
+  position: fixed;
+  z-index: 50;
+  min-height: 100px;
+  min-width: 160px;
+  max-height: 100px;
+  max-width: 160px;
+  left: 50px;
+  bottom: 150px;
+}
+
+button.first {
+  position: absolute;
+  font-size: 100px;
+  z-index: 30;
+  min-height: 100vh;
+  min-width: 160vh;
+}
+
+button.game {
+  position: absolute;
+  z-index: 20;
+  font-family: 'Cherry Swash', cursive;
+  font-size: 20px;
+  padding: 5px 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
+  height: 100px;
+  width: 150px;
 }
 
 /* Styling the products */
 
 main {
   display: flex;
+  width: 130vh;
   flex-flow: row wrap;
   justify-content: space-around;
+  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
 }
 
 section {
-  width: 45%;
+  left: 300px;
+  width: 300px;
   margin: 5px;
   background-color: black;
   position: relative;
-  height: 215px;
+  height: 400px;
+  z-index: 10;
+  
 }
 
 section img {
-  width: 100%;
-  display: block;
-  position: absolute;
-  bottom: 0px;
+  width: 200px;
+  height: 300px;
+  
+  position:absolute;
+  bottom: 50px;
+  left: 50px;
 }
 
 section p {
   color: yellow;
   background: black;
+  z-index: 10;
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -228,41 +188,4 @@ section p {
   right: 10px;
   bottom: -6px;
   z-index: 2000;
-}
-
-
-
-/* mobile responsive styles*/
-@media screen and (max-width: 800px){
-  body, body div {
-    display: grid;
-    max-width: 480px;
-  }
-  header {
-    grid-row: 1;
-    margin-top: 10px;
-  }  
-  header h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
-    background: url(icons/bean_can.png) no-repeat 0% center, url(icons/bean_can.png) no-repeat 100% center;
-    background-size: 48px 48px;
-  }
-  aside {
-    grid-row: 1;
-    border-right: none;    
-    border-bottom: 5px solid black;    
-  }
-  input{
-    width: calc(100% - 5px);
-    padding: 5px 0 5px 5px;
-  }
-  main {
-    grid-row: 2;
-  }
-  footer {
-    grid-row: 3;
-    margin-bottom: 10px;
-  }
- 
 }

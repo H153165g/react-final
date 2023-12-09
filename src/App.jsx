@@ -2,6 +2,7 @@ import { useState , useEffect } from "react";
 import React from "react";
 
 async function fetchCategory(category,searchTerm){
+    
     if(category===""){
         
         const request2 = await fetch("https://www.amiiboapi.com/api/gameseries/");
@@ -22,7 +23,8 @@ async function fetchCategory(category,searchTerm){
     if(category === "All"){
         return data.amiibo;
     } else {
-        return data.amiibo.filter(products => products.gameSeries === category); 
+        console.log()
+        return data.amiibo.filter(products => products.gameSeries.includes(category)); 
     }
 }
 
@@ -32,13 +34,16 @@ export default function App(){
     const [Qz,setQz]=useState({});
     const [count,setCount]=useState(0);
     const [select,setSelect]=useState(0);
-    const [category,setCategory]=useState("");
+    const [category,setCategory]=useState("All");
     const [searchTerm,setSearchTerm]=useState("");
     const [gameseries,setgameserise]=useState([]);
     const [Styx,setStyx]=useState([]);
     const [Styy,setStyy]=useState([]);
     const [load,setLoad]=useState(true);
-    const [selgame,setselgame]=useState([]);
+    const [Karuta,setKaruta]=useState([]);
+    const [Fuda,setFuda]=useState([]);
+    const [KarutaTF,setKarutaTF]=useState(new Array(52).fill(true));
+    const [Fcount,setFcount]=useState(0);
             
     useEffect(() => {
         const fetchData = async () => {
@@ -57,7 +62,29 @@ export default function App(){
         fetchData();
     }, []);
 
+    useEffect(()=>{
+    
+        const shuffledTtems=shuffleArray(product);
+        setKaruta(shuffledTtems.slice(0, 52));
+    },[product]);
 
+    useEffect(()=>{
+        const shuffledTtems=shuffleArray(Karuta);
+        setFuda(shuffledTtems);
+    },[Karuta]);
+
+    function shuffleArray(array) {
+        // 配列のコピーを作成
+        const shuffledArray = array.slice();
+      
+        // Fisher-Yatesアルゴリズムを使ったシャッフル
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+      
+        return shuffledArray;
+      }
     
     function getRandomPosition() {
         const top = Math.floor(Math.random() * (window.innerHeight)/100);
@@ -143,7 +170,7 @@ export default function App(){
                                 e.preventDefault();
                                 
                                 setSearchTerm(Qz.name);
-                                const newProduct = await fetchCategory(Qz.game,Qz.name);     
+                                const newProduct = await fetchCategory("All",Qz.name);     
                                 setProduct(newProduct);
                                 setSelect(1);
                             }
@@ -161,36 +188,37 @@ export default function App(){
         return (
             <>
       
-        <h1>Nintendo's Game</h1>
+        
       
-      <div>
+      <div className="inputter">
+      <h1>Nintendo's Game</h1>
         <aside>
           <form>
             <div>
-              <label htmlFor="gameseries">Choose a gameseries:</label>
+              <label htmlFor="category">Choose a gameseries:</label>
               <select 
                 id="category" 
-                onChange={async (event) => setCategory(event.target.value)
+                onChange={async (event) => {setCategory(event.target.value);console.log(event.target.value)}
                 }
+                
               >
                 <option  value="All">All</option>
                 {gameseries.map((game,index)=>{
                     return(
                         
-                        <option key={index} value={game}>
+                        <option key={index} value={game.name}>
                             {game.name}
                         </option>
                         
                     );
                 })}
               </select>
-            </div>
-            <div>
+            
               <label htmlFor="searchTerm">Enter search term:</label>
               <input 
                 type="text" 
                 id="searchTerm" 
-                placeholder="e.g. beans" 
+                placeholder="charactor" 
                 value={searchTerm}
                 onChange={async (event) => setSearchTerm(event.target.value) 
               }         
@@ -199,20 +227,23 @@ export default function App(){
             </div>
             <div>
               <button onClick={async(e)=>{
-                console.log(category)
+                
                 e.preventDefault();
+        
                 const newProduct = await fetchCategory(category,searchTerm);     
                 setProduct(newProduct);
               }}>Filter results</button>
             </div>
           </form>
         </aside>
+        </div>
+        <div>
         <main>
           {product.map((product, index) => (
-            <section key={index} className="Qz">
+            <section key={index}>
               <h2>{product.name}</h2>
               <p>{product.gameSeries}</p>
-              <img src={product.image} alt={product.character} />
+              <img src={product.image} alt={product.character}/>
             </section>
           ))}
         </main>
@@ -224,17 +255,89 @@ export default function App(){
         setSelect(0);
       }
     } 
-      className="pass">Game</button>
+      className="pass">Game2</button>
+
+<button onClick={async(e)=>{
+        e.preventDefault();
+        const newProduct = await fetchCategory("All","");     
+        setProduct(newProduct);
+        setSelect(3);
+      }
+    } 
+      className="pass2">Game1</button>
     </>
             
         );
     }
+    function page3(){
+        
+        const array = [];
+        
+        const makeStage = () => {
+            let count = 0;
+            for (let i = 0; i < 13; i++) {
+                for (let j = 0; j < 4; j++) {
+                    const abcount=count;
+                    if (count < Karuta.length && KarutaTF[count]) {
+                        array.push(
+                            <img
+                                key={count}
+                                src={Karuta[count].image}
+                                alt={Karuta[count].character}
+                                style={{
+                                    position:"absolute",
+                                    top: j * 200 + 100 + 'px',
+                                    left: i * 110  + 'px',
+                                    width: '100px',
+                                    height: '200px'
+                                }}
+                                onClick={() => {
+    
+    
+                                    if (Fuda[Fcount].character === Karuta[abcount].character) {
+                                        setKarutaTF(KarutaTF.map((value, idx) => (idx === abcount ? false : value)));
+                                        setFcount(Fcount + 1);
+                                    }
+                                }}
+                            />
+                        );
+                    }
+                    count++;
+                }
+            }
+        };
+        
+    
+        makeStage(); // Call the makeStage function to populate the array
+
+        console.log(KarutaTF)
+    
+        return (
+            <>
+                <h1>{Fuda[Fcount].character}</h1>
+                {
+                    array.map((element, index) => {
+                    if (KarutaTF[index]) {
+                        console.log(index)
+                        return <React.Fragment key={index}>{element}</React.Fragment>;
+                    } else {
+                        return null;
+                        //なぜか後ろの画像もnullになる。KarutaTF[index+1]はちゃんとtrueであった。
+                    }
+                })
+                }
+            </>
+        );
+    }
+    
     
     function startLoad(){
         if(select===0){
             return (page1());
-        } else {
+        } else if(select==1){
             return (page2());
+        } else {
+            return (page3());
         }
     }
  
