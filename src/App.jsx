@@ -44,6 +44,7 @@ export default function App(){
     const [Fuda,setFuda]=useState([]);
     const [KarutaTF,setKarutaTF]=useState(new Array(52).fill(true));
     const [Fcount,setFcount]=useState(0);
+    const [Misscount,setMisscount]=useState(0);
             
     useEffect(() => {
         const fetchData = async () => {
@@ -172,7 +173,7 @@ export default function App(){
                                 setSearchTerm(Qz.name);
                                 const newProduct = await fetchCategory("All",Qz.name);     
                                 setProduct(newProduct);
-                                setSelect(1);
+                                setSelect(0);
                             }
         
                         }
@@ -252,7 +253,7 @@ export default function App(){
         e.preventDefault();
         const newProduct = await fetchCategory("All","");     
         setProduct(newProduct);
-        setSelect(0);
+        setSelect(1);
       }
     } 
       className="pass">Game2</button>
@@ -275,10 +276,11 @@ export default function App(){
         
         const makeStage = () => {
             let count = 0;
+            let dataset=[...KarutaTF];
             for (let i = 0; i < 13; i++) {
                 for (let j = 0; j < 4; j++) {
                     const abcount=count;
-                    if (count < Karuta.length && KarutaTF[count]) {
+                    if (count < Karuta.length ) {
                         array.push(
                             <img
                                 key={count}
@@ -291,12 +293,14 @@ export default function App(){
                                     width: '100px',
                                     height: '200px'
                                 }}
-                                onClick={() => {
-    
+                                onClick={async(e) => { 
     
                                     if (Fuda[Fcount].character === Karuta[abcount].character) {
-                                        setKarutaTF(KarutaTF.map((value, idx) => (idx === abcount ? false : value)));
+                                        dataset[abcount]=false;                                        
+                                        setKarutaTF(dataset);
                                         setFcount(Fcount + 1);
+                                    }  else {
+                                        setMisscount(Misscount+1);
                                     }
                                 }}
                             />
@@ -307,34 +311,35 @@ export default function App(){
             }
         };
         
-    
-        makeStage(); // Call the makeStage function to populate the array
-
-        console.log(KarutaTF)
+        makeStage(); 
     
         return (
             <>
-                <h1>{Fuda[Fcount].character}</h1>
+
+            
+            {Fcount<52  ?  <h1>{Fuda[Fcount].character}</h1>:<h1>Complete!!</h1>}
                 {
                     array.map((element, index) => {
+
                     if (KarutaTF[index]) {
-                        console.log(index)
                         return <React.Fragment key={index}>{element}</React.Fragment>;
                     } else {
                         return null;
-                        //なぜか後ろの画像もnullになる。KarutaTF[index+1]はちゃんとtrueであった。
                     }
                 })
                 }
+                <div className="miss">
+                   <h2>Miss  {Misscount}</h2>
+                </div>
             </>
         );
     }
     
     
     function startLoad(){
-        if(select===0){
+        if(select===1){
             return (page1());
-        } else if(select==1){
+        } else if(select==0){
             return (page2());
         } else {
             return (page3());

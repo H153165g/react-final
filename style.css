@@ -25,15 +25,16 @@ h1 {
   background-size: 48px 48px;
 }
 
+
+
 h2 {
   font-size: 2rem;
-  color: yellow;
+  color: black;
   text-align: right;
   width: 160px;
   position: absolute;
   right: 4%;
   z-index: 3000;
-  text-shadow: 2px 2px 1px black;
   line-height: 2rem;
   padding-top: 0.3rem;
 }
@@ -65,6 +66,13 @@ div.inputter {
   height: 600vh;
   box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
 }
+
+div.miss{
+  position: fixed;
+  right: 100px;
+  top: 0px;
+}
+
 
 /* Form styling */
 
