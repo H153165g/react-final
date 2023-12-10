@@ -256,7 +256,7 @@ export default function App(){
         setSelect(1);
       }
     } 
-      className="pass">Game2</button>
+      className="pass">Series Karuta</button>
 
 <button onClick={async(e)=>{
         e.preventDefault();
@@ -265,7 +265,7 @@ export default function App(){
         setSelect(3);
       }
     } 
-      className="pass2">Game1</button>
+      className="pass2">Charactor Karuta</button>
     </>
             
         );
@@ -317,7 +317,14 @@ export default function App(){
             <>
 
             
-            {Fcount<52  ?  <h1>{Fuda[Fcount].character}</h1>:<h1>Complete!!</h1>}
+            {Fcount<52  ?  <h1>{Fuda[Fcount].character}</h1>:
+            <button onClick={async()=>{
+                setSelect(0);
+            }
+            } className="first">
+                Complete!!!!
+                Miss:{Misscount}
+            </button>}
                 {
                     array.map((element, index) => {
 
@@ -342,6 +349,7 @@ export default function App(){
         } else if(select==0){
             return (page2());
         } else {
+            setFcount(0);
             return (page3());
         }
     }
