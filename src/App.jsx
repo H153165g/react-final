@@ -217,6 +217,7 @@ export default function App(){
             
               <label htmlFor="searchTerm">Enter search term:</label>
               <input 
+                className="in"
                 type="text" 
                 id="searchTerm" 
                 placeholder="charactor" 
@@ -227,7 +228,7 @@ export default function App(){
               </input>
             </div>
             <div>
-              <button onClick={async(e)=>{
+            <button onClick={async(e)=>{
                 
                 e.preventDefault();
         
@@ -242,7 +243,7 @@ export default function App(){
         <main>
           {product.map((product, index) => (
             <section key={index}>
-              <h2>{product.name}</h2>
+              <h3>{product.name}</h3>
               <p>{product.gameSeries}</p>
               <img src={product.image} alt={product.character}/>
             </section>
@@ -266,6 +267,7 @@ export default function App(){
       }
     } 
       className="pass2">Charactor Karuta</button>
+    <button className="pass3">Game's option</button>
     </>
             
         );
