@@ -164,8 +164,8 @@ button.first {
   position: absolute;
   font-size: 100px;
   z-index: 30;
-  min-height: 100vh;
-  min-width: 160vh;
+  height: 100vh;
+  width: 170vh;
 }
 
 button.game {

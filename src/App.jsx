@@ -351,7 +351,6 @@ export default function App(){
         } else if(select==0){
             return (page2());
         } else {
-            setFcount(0);
             return (page3());
         }
     }
