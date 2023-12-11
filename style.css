@@ -188,7 +188,6 @@ main {
   width: 130vh;
   flex-flow: row wrap;
   justify-content: space-around;
-  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
 }
 
 section {
