@@ -153,7 +153,7 @@ export default function App(){
             const newProduct = await fetchCategory("All", Qz.name);
             setProduct(newProduct);
             setSelect(0);
-          }, 30000)
+          }, 10000)
         }
             
         
