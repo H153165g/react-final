@@ -1,22 +1,16 @@
 import { useState , useEffect } from "react";
 import React from "react";
 
-async function fetchCategory(category,searchTerm){
-    
+async function fetchCategory(category,searchTerm){    
     if(category===""){
-        
         const request2 = await fetch("https://www.amiiboapi.com/api/gameseries/");
         let data2=await request2.json();
         
         console.log(data2.amiibo)
         return data2.amiibo||[];
     }
-
     const request = await fetch("https://www.amiiboapi.com/api/amiibo/");
     let data = await request.json();//dataの値が変化するため、const -> let
-    
-
-
     if(searchTerm !== ""){
         data.amiibo = data.amiibo.filter(products => products.character.includes(searchTerm));
     }
@@ -45,6 +39,7 @@ export default function App(){
     const [KarutaTF,setKarutaTF]=useState(new Array(52).fill(true));
     const [Fcount,setFcount]=useState(0);
     const [Misscount,setMisscount]=useState(0);
+
             
     useEffect(() => {
         const fetchData = async () => {
@@ -64,7 +59,6 @@ export default function App(){
     }, []);
 
     useEffect(()=>{
-    
         const shuffledTtems=shuffleArray(product);
         setKaruta(shuffledTtems.slice(0, 52));
     },[product]);
@@ -73,6 +67,7 @@ export default function App(){
         const shuffledTtems=shuffleArray(Karuta);
         setFuda(shuffledTtems);
     },[Karuta]);
+
 
     function shuffleArray(array) {
         // 配列のコピーを作成
@@ -145,10 +140,21 @@ export default function App(){
                               setCount(count+1);
 
                         }
-                       
+                    
+
+                        
                         setStart(false);
-                }} className="first">Start!!</button>
+            }} className="first">Start!!</button>
             }
+
+       {start ||
+        setTimeout(async () => {
+            setSearchTerm(Qz.name);
+            const newProduct = await fetchCategory("All", Qz.name);
+            setProduct(newProduct);
+            setSelect(0);
+          }, 30000)
+        }
             
         
                <div className="relative">
@@ -184,13 +190,9 @@ export default function App(){
                     );
     }
 
-
     function page2(){
         return (
             <>
-      
-        
-      
       <div className="inputter">
       <h1>Nintendo's Game</h1>
         <aside>
@@ -343,8 +345,6 @@ export default function App(){
             </>
         );
     }
-    
-    
     function startLoad(){
         if(select===1){
             return (page1());
@@ -354,13 +354,9 @@ export default function App(){
             return (page3());
         }
     }
- 
-      
     return(
         <>
-        {load===false&& startLoad()}
-        
+        {load===false&& startLoad()}  
         </>
-    );
-    
+    );   
 }
