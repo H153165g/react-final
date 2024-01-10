@@ -39,6 +39,7 @@ export default function App(){
     const [KarutaTF,setKarutaTF]=useState(new Array(52).fill(true));
     const [Fcount,setFcount]=useState(0);
     const [Misscount,setMisscount]=useState(0);
+    const [timerId,settime]=useState();
 
             
     useEffect(() => {
@@ -67,6 +68,19 @@ export default function App(){
         const shuffledTtems=shuffleArray(Karuta);
         setFuda(shuffledTtems);
     },[Karuta]);
+
+    useEffect(() => {
+        if (!start) {
+          const id = setTimeout(async () => {
+            setSearchTerm(Qz.name);
+            const newProduct = await fetchCategory("All", Qz.name);
+            setProduct(newProduct);
+            setSelect(0);
+          }, 10000);
+      
+          settime(id);
+        }
+      }, [Qz, start]);
 
 
     function shuffleArray(array) {
@@ -126,6 +140,8 @@ export default function App(){
             )            
     }
 
+      
+
 
     function page1(){
         return(
@@ -146,15 +162,6 @@ export default function App(){
                         setStart(false);
             }} className="first">Start!!</button>
             }
-
-       {start ||
-        setTimeout(async () => {
-            setSearchTerm(Qz.name);
-            const newProduct = await fetchCategory("All", Qz.name);
-            setProduct(newProduct);
-            setSelect(0);
-          }, 10000)
-        }
             
         
                <div className="relative">
@@ -169,6 +176,10 @@ export default function App(){
                     onClick={
                         async(e)=>{
                             if(game.name===Qz.game){
+                                if (timerId) {
+                                    clearTimeout(timerId);
+                                    settime(null);
+                                  }
                                 setStart(true);
                                 await randomValueFromArray();
                                 stylesetting();
